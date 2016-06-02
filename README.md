@@ -3,5 +3,5 @@
 Roombaを操作するためのサンプルです。
 iRobot Create2ように作りました。
 
-<img src="http://i.imgur.com/QBeMeAl.jpg" width="350" height="400">
+<img src="http://i.imgur.com/QBeMeAl.jpg" width="350" height="500">
 
