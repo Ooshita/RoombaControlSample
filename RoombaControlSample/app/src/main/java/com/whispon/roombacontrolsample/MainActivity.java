@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         rightButton.setOnClickListener((view) -> {
-            roombaTurnLeft();
+            roombaTurnRight();
         });
 
         leftButon.setOnClickListener((view) -> {
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     void roombaCleaning() {
         byte[] commands = new byte[3];
         commands[0] = (byte) 128;
-        commands[1] = (byte) 132;
+        commands[1] = (byte) 131;
         commands[2] = (byte) 135;
         sendCommand(commands);
     }
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     void roombaDocking() {
         byte[] commands = new byte[3];
         commands[0] = (byte) 128;
-        commands[1] = (byte) 132;
+        commands[1] = (byte) 131;
         commands[2] = (byte) 143;
         sendCommand(commands);
     }
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         byte[] commands = new byte[7];
         commands[0] = (byte) 128;        // Start
 
-        commands[1] = (byte) 132;        // Full
+        commands[1] = (byte) 131;        // Safe
 
         commands[2] = (byte) 145;        // Drive Direct
         commands[3] = (byte) (r >> 8);   // Right velocity high byte
