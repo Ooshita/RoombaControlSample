@@ -1,5 +1,7 @@
 package com.whispon.roombacontrolsample;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private Button stopButton;
     private Button cleaningButton;
     private Button dockingButton;
+    private Button oneRightRotationButton;
+    private Button oneLeftRotationButton;
 
 
     private Physicaloid mPhysicaloid;
@@ -43,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         backwardButton = (Button) findViewById(R.id.backwardButton);
         stopButton = (Button) findViewById(R.id.stopButton);
         dockingButton = (Button) findViewById(R.id.dockingButton);
+        oneRightRotationButton = (Button) findViewById(R.id.oneRightRotation);
+        oneLeftRotationButton = (Button) findViewById(R.id.oneLeftRotation);
 
         forwardButton.setOnClickListener((view) -> {
             roombaForward();
@@ -70,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
 
         dockingButton.setOnClickListener((view) -> {
             roombaDocking();
+        });
+
+        oneRightRotationButton.setOnClickListener((view) -> {
+            roombaOneRightRotation();
+        });
+
+        oneLeftRotationButton.setOnClickListener((view) -> {
+            roombaOneLeftRotation();
         });
 
         // Physicaloidのインスタンスを生成
@@ -141,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * ルンバ左回転
+     *
      */
     void roombaTurnLeft() {
         sendDriveDirect(-300, 300);
@@ -148,10 +163,42 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * ルンバ右回転
+     *
      */
     void roombaTurnRight() {
         sendDriveDirect(300, -300);
     }
+
+    /**
+     * ルンパを右１回転させる
+     *
+     */
+    void roombaOneRightRotation() {
+        sendDriveDirect(300, -300);
+        try {
+            Thread.sleep(2350);
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        //停止
+        sendDriveDirect(0, 0);
+    }
+
+    /**
+     * ルンパを左１回転させる
+     *
+     */
+    void roombaOneLeftRotation() {
+        sendDriveDirect(-300, 300);
+        try {
+            Thread.sleep(2350);
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+        //停止
+        sendDriveDirect(0, 0);
+    }
+
 
     /**
      * 車輪制御コマンドを送信する
@@ -187,4 +234,11 @@ public class MainActivity extends AppCompatActivity {
             mPhysicaloid.close();
         }
     }
+    /*
+    @Override
+    protected void onMessage(Context context, Intent intent) {
+
+
+    }
+    */
 }

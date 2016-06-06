@@ -78,6 +78,24 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="右に１回転する"
+        android:id="@+id/oneRightRotation"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        ></Button>
+
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="左に１回転する"
+    android:id="@+id/oneLeftRotation"
+    android:textStyle="bold"
+    android:textSize="20dp"
+    ></Button>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="クリーニングコマンドを送る"
         android:id="@+id/cleaningButton"
         android:textStyle="bold"
